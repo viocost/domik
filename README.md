@@ -7,7 +7,6 @@ fashion with significantly less code. It uses concise clear API inspired by
 JQuery, but manipulates native DOM elements without any extra wrappers.
 
 
-<a id="org1e2110e"></a>
 
 # Basic usage
 
@@ -16,12 +15,8 @@ Import the entire module:
     import * as util from "domik";
 
 
-<a id="org370ada8"></a>
-
 # API
 
-
-<a id="org74f57b5"></a>
 
 ## bake(name, recipe)
 
@@ -42,7 +37,6 @@ Bakes DOM element according to recipe in a declarative fashion.
     -   listeners - JSON object with keys - events types, vaules - event handlers
 
 
-<a id="org583f7ed"></a>
 
 ### Code example:
 
@@ -80,7 +74,6 @@ Bakes DOM element according to recipe in a declarative fashion.
 
 
 
-<a id="org2a2b8f1"></a>
 
 ## $(selector)
 
@@ -89,7 +82,6 @@ Bakes DOM element according to recipe in a declarative fashion.
 This is alias for native document.querySelector method
 
 
-<a id="org5936365"></a>
 
 ## $$(selector)
 
@@ -98,7 +90,6 @@ This is alias for native document.querySelector method
 This is alias for native document.querySelectorAll method
 
 
-<a id="org13c7ae8"></a>
 
 ## appendChiledren(parent, children)
 
@@ -108,7 +99,6 @@ This is alias for native document.querySelectorAll method
 Appends child or all children to a parent
 
 
-<a id="orgbb19217"></a>
 
 ## show(element)
 
@@ -117,7 +107,6 @@ Appends child or all children to a parent
 Alias in jquery style for display: block
 
 
-<a id="org31d0062"></a>
 
 ## hide(element)
 
@@ -126,7 +115,6 @@ Alias in jquery style for display: block
 Alias in jquery style for display: none
 
 
-<a id="org4a64777"></a>
 
 ## flex(element)
 
@@ -135,7 +123,6 @@ Alias in jquery style for display: none
 Alias in jquery style for display: flex
 
 
-<a id="org8d86a0e"></a>
 
 ## val(element, value)
 
@@ -145,7 +132,6 @@ Alias in jquery style for display: flex
 Sets value for given element
 
 
-<a id="orgc9cabd3"></a>
 
 ## html(element, html)
 
@@ -155,8 +141,6 @@ Sets value for given element
 Sets innerHTML for given element
 
 
-<a id="org5829d66"></a>
-
 ## text(element, text)
 
 -   element (string or DOM element)
@@ -164,8 +148,6 @@ Sets innerHTML for given element
 
 Sets innerText for given element
 
-
-<a id="orgc653b4c"></a>
 
 ## addClass(element, class)
 
@@ -175,7 +157,6 @@ Sets innerText for given element
 Adds class to element&rsquo;s classlist
 
 
-<a id="org914a229"></a>
 
 ## removeClass(element, class)
 
@@ -185,7 +166,6 @@ Adds class to element&rsquo;s classlist
 Removes class from element&rsquo;s classlist
 
 
-<a id="orgdafdd3b"></a>
 
 ## generateRandomId(length, prefix, postfix)
 
@@ -194,5 +174,5 @@ Removes class from element&rsquo;s classlist
 -   postfix (string) Optional postfix string
 
 Generates and returns random id of a given length in form of:
-   &ldquo;prefix-random<sub>id</sub>-postfix&rdquo;
+   &ldquo;prefix-random-id-postfix&rdquo;
 
