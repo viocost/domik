@@ -1,0 +1,41 @@
+{
+  "name": "domik",
+  "version": "1.0.0",
+  "description": "A powerful yet tiny set of dom manipulation helpers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viocost/domik.git"
+  },
+  "keywords": [
+    "dom",
+    "jquery",
+    "style",
+    "api",
+    "util",
+    "bake",
+    "class",
+    "create"
+  ],
+  "author": "Konstantin Rybakov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viocost/domik/issues"
+  },
+  "homepage": "https://github.com/viocost/domik#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/polyfill": "^7.2.3",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/runtime": "^7.2.0",
+    "babel-loader": "^8.0.6",
+    "bable-loader": "0.0.1-security",
+    "webpack-visualizer-plugin": "^0.1.11",
+    "webpack": "^4.41.2"
+  }
+}
