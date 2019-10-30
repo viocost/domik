@@ -2,9 +2,9 @@
 
 * Description
 DOM-manipulating API in pure Javascriptn is verbose and pain to write in. JQuery partially solves
-this problem, but who wants to have another bulky dependency? dom-util is a tiny toolbox of DOM-manipulating functions written in pure
-javacript. It allows creating complex DOM element structures in declarative
-fashion writing significantly less code. It uses concise clear API inspired by
+this problem, but who wants to have another bulky dependency? domik is a tiny toolbox of DOM-manipulating helpers written in pure
+javacript, that allows creating complex DOM element structures in declarative
+fashion with significantly less code. It uses concise clear API inspired by
 JQuery, but manipulates native DOM elements without any extra wrappers.
 
 * Basic usage
