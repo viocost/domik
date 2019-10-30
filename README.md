@@ -79,7 +79,9 @@ Bakes DOM element according to recipe in a declarative fashion.
 
 -   selector (string) Query selector
 
-This is alias for native document.querySelector method
+This is an alias for native document.querySelector method
+
+    util.$("#selector")
 
 
 
@@ -87,16 +89,18 @@ This is alias for native document.querySelector method
 
 -   selector (string) Query selector
 
-This is alias for native document.querySelectorAll method
+This is an alias for native document.querySelectorAll method
+
+    util.$$(".another-selector")
 
 
 
-## appendChiledren(parent, children)
+## appendChildren(parent, children)
 
 -   parent (DOM element)
 -   children (DOM element or array of DOM elements)
 
-Appends child or all children to a parent
+Appends child or array of children to a parent
 
 
 
