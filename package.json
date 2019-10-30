@@ -1,8 +1,8 @@
 {
   "name": "domik",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A powerful yet tiny set of dom manipulation helpers",
-  "main": "index.js",
+  "main": "src/domik.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

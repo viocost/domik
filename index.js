@@ -1,1 +1,206 @@
-!function(n){var t={};function e(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return n[r].call(o.exports,o,o.exports,e),o.l=!0,o.exports}e.m=n,e.c=t,e.d=function(n,t,r){e.o(n,t)||Object.defineProperty(n,t,{enumerable:!0,get:r})},e.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"__esModule",{value:!0})},e.t=function(n,t){if(1&t&&(n=e(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.__esModule)return n;var r=Object.create(null);if(e.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:n}),2&t&&"string"!=typeof n)for(var o in n)e.d(r,o,function(t){return n[t]}.bind(null,o));return r},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},e.p="",e(e.s=0)}([function(n,t,e){"use strict";function r(n){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(n){return typeof n}:function(n){return n&&"function"==typeof Symbol&&n.constructor===Symbol&&n!==Symbol.prototype?"symbol":typeof n})(n)}function o(n,t){var e=document.createElement(n);if(!t)return e;if(t.classes)if("object"===r(t.classes)){var o=!0,i=!1,u=void 0;try{for(var l,c=t.classes[Symbol.iterator]();!(o=(l=c.next()).done);o=!0){var f=l.value;e.classList.add(f)}}catch(n){i=!0,u=n}finally{try{o||null==c.return||c.return()}finally{if(i)throw u}}}else{if("string"!=typeof t.classes)throw new Error("Bake parameters invalid");e.classList.add(t.classes)}if(t.listeners)for(var s=0,d=Object.keys(t.listeners);s<d.length;s++){var y=d[s];e.addEventListener(y,t.listeners[y])}if(t.id&&e.setAttribute("id",t.id),t.attributes)for(var p=0,v=Object.keys(t.attributes);p<v.length;p++){var b=v[p];e.setAttribute(b,t.attributes[b])}return t.style&&(e.style=t.style),t.html&&(e.innerHTML=t.html),t.text&&(e.innerText=t.text),t.val&&(e.value=t.val),t.children&&a(e,t.children),e}function i(n,t){S(n).classList.add(t)}function u(n,t){S(n).classList.remove(t)}function l(n,t){S(n).innerHTML=t}function c(n,t){S(n).innerText=t}function f(n,t){S(n).value=t}function a(n,t){if(t instanceof Array){var e=!0,r=!1,o=void 0;try{for(var i,u=t[Symbol.iterator]();!(e=(i=u.next()).done);e=!0){var l=i.value;n.appendChild(l)}}catch(n){r=!0,o=n}finally{try{e||null==u.return||u.return()}finally{if(r)throw o}}}else n.appendChild(t)}function s(n){return S(n)}function d(n){return document.querySelectorAll(n)}function y(n){try{g(n,"none")}catch(n){console.log("Display none fail: "+n)}}function p(n){try{g(n,"none")}catch(n){console.log("Display none fail: "+n)}}function v(n){g(n,"block")}function b(n){g(n,"block")}function h(n){g(n,"flex")}function m(n){g(n,"flex")}function g(n,t){S(n).style.display=t}function x(){for(var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:10,t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"",e=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"",r="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",o=[],i=0;i<n;++i)o.push(r[Math.floor(Math.random()*r.length)]);return"".concat(t.length>0?t+"-":"").concat(o.join("")).concat(e.length>0?"-"+e:"")}function S(n){var t=n;if("string"==typeof t&&(t=document.querySelector(n)),!t)throw"Element ".concat(n," is undefined");if(!t instanceof Element)throw new Error("Type of element is invalid");return t}e.r(t),e.d(t,"bake",(function(){return o})),e.d(t,"addClass",(function(){return i})),e.d(t,"removeClass",(function(){return u})),e.d(t,"html",(function(){return l})),e.d(t,"text",(function(){return c})),e.d(t,"val",(function(){return f})),e.d(t,"appendChildren",(function(){return a})),e.d(t,"$",(function(){return s})),e.d(t,"$$",(function(){return d})),e.d(t,"displayNone",(function(){return y})),e.d(t,"hide",(function(){return p})),e.d(t,"displayBlock",(function(){return v})),e.d(t,"show",(function(){return b})),e.d(t,"displayFlex",(function(){return h})),e.d(t,"flex",(function(){return m})),e.d(t,"generateRandomId",(function(){return x}))}]);
+/**
+ *
+ *
+ * Bakes DOM element as per request in data
+ *
+ * @param name - name of the element such as div, button etc
+ *
+ * @param recipe
+    * recipe is a JSON object with following properties:
+ *  * id - string id
+ *  * classes - list of classes. Array or single entry
+ *  * attributes - object of attributes key vaule pairs
+ *  * html - inner html
+ *  * text - inner text
+ *  * val  - value
+ *  * style - css string inline style for the element
+ *  * children - single DOM element or array of DOM elements that will be appended as children
+ *  * listeners - JSON object with keys - events types, vaules - event handlers
+ */
+export function bake(name, recipe){
+    let el = document.createElement(name);
+    if(!recipe) return el;
+
+    if(recipe.classes){
+        if (typeof recipe.classes === "object"){
+            for (let c of recipe.classes){
+                el.classList.add(c);
+            }
+        }else if (typeof recipe.classes === "string"){
+            el.classList.add(recipe.classes);
+        }else {throw new Error("Bake parameters invalid");}
+    }
+
+    if(recipe.listeners){
+        for(let ev of Object.keys(recipe.listeners)){
+            el.addEventListener(ev, recipe.listeners[ev])
+        }
+    }
+    
+    if(recipe.id){
+        el.setAttribute("id", recipe.id)
+    }
+    
+    if (recipe.attributes){
+        for (let key of Object.keys(recipe.attributes)){
+            el.setAttribute(key, recipe.attributes[key])
+        }
+        
+    }
+
+    if (recipe.style){
+        el.style = recipe.style;
+    }
+
+    if (recipe.html)
+        el.innerHTML = recipe.html;
+
+    if (recipe.text)
+        el.innerText = recipe.text;
+
+    if (recipe.val)
+        el.value = recipe.val;
+
+    if (recipe.children){
+        appendChildren(el, recipe.children);
+    }
+
+    return el
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------
+// CSS classes wrapers
+export function addClass(element, _class){
+    let node = verifyGetNode(element);
+    node.classList.add(_class);
+}
+
+export function removeClass(element, _class){
+    let node = verifyGetNode(element);
+    node.classList.remove(_class);
+}
+//end//////////////////////////////////////////////////////////////////////////
+
+
+// ---------------------------------------------------------------------------------------------------------------------------
+// Setting text and html
+export function html(element, html){
+    let node = verifyGetNode(element);
+    node.innerHTML = html;
+}
+
+export function text(element, text){
+    let node = verifyGetNode(element);
+    node.innerText = text;
+}
+//end//////////////////////////////////////////////////////////////////////////
+
+/**
+ * Less verbose wrapper for setting value;
+ *
+ */
+export function val(element, val){
+    let node = verifyGetNode(element);
+    node.value = val;
+}
+
+/**
+ * Given parent node appends one or multiple children
+ * @param parent DOM node
+ * @param children can be array of nodes or a single node
+ */
+export function appendChildren(parent, children){
+    if (children instanceof  Array){
+        for (let child of children){
+            parent.appendChild(child)
+        }
+    } else {
+        parent.appendChild(children)
+    }
+}
+
+/**
+ * Less verbose wrapper for document.querySelector
+ */
+export function $(element){
+    return verifyGetNode(element)
+}
+
+/**
+ * Less verbose wrapper for document.querySelectorAll
+ */
+export function $$(selector){
+    return document.querySelectorAll(selector)
+}
+
+
+export function displayNone(node){
+    try{
+        displayElement(node, "none")
+    }catch(err){
+        console.log("Display none fail: " + err)
+    }
+}
+
+// Alias in jquery style for display: hide
+export function hide(node){
+    try{
+        displayElement(node, "none")
+    }catch(err){
+        console.log("Display none fail: " + err)
+    }
+}
+
+export function displayBlock(node){
+    displayElement(node, "block")
+}
+
+// Alias in jquery style for display: block
+export function show(node){
+    displayElement(node, "block")
+}
+
+export function displayFlex(node){
+    displayElement(node, "flex")
+}
+
+// Alias in jquery style for display: flex
+export function flex(node){
+    displayElement(node, "flex")
+}
+
+/**
+ * Internal. Sets node display property
+ *
+ */
+function displayElement(element, display){
+    let node = verifyGetNode(element);
+    node.style.display = display;
+}
+
+export function generateRandomId(length = 10, prefix="", postfix=""){
+    let alphabet = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let symbols = [];
+    for(let i=0; i<length; ++i){
+        symbols.push(alphabet[Math.floor(Math.random() * alphabet.length)])
+    }
+
+    return `${prefix.length > 0 ? prefix + "-" : ""}${symbols.join("")}${postfix.length > 0 ? "-" + postfix : ""}`;
+}
+
+/**
+ * Helper function. Given either DOM element or selector
+ * makes sure it exists and valid, and returns it.
+ */
+function verifyGetNode(element){
+    let node = element
+    if (typeof node === "string"){
+        node =  document.querySelector(element);
+    }
+    if (!node){
+        throw `Element ${element} is undefined`;
+    } else if(!node instanceof Element){
+        throw new Error("Type of element is invalid");
+    }
+    return node;
+}
